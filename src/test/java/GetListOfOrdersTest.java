@@ -15,8 +15,7 @@ public class GetListOfOrdersTest {
     @Test
     @DisplayName("Check list of orders")
     public void listOfOrders() {
-        given()
-                .get("/api/v1/orders")
+        Steps.listOfOrders()
                 .then().body("orders", hasSize(greaterThanOrEqualTo(0)))
                 .and()
                 .statusCode(200);

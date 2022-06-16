@@ -63,12 +63,17 @@ public final class Steps {
     }
 
     @Step("Login")
-    public static Response login(String body){
+    public static Response login(Login login){
         return given()
                 .header("Content-type", "application/json")
                 .and()
-                .body(body)
+                .body(login)
                 .when()
                 .post("/api/v1/courier/login");
+    }
+
+    @Step("List of orders")
+    public static Response listOfOrders() {
+       return given().get("/api/v1/orders");
     }
 }
